@@ -1,6 +1,12 @@
 # Weather CEP API
 
+[![Deploy to Cloud Run](https://img.shields.io/badge/Deploy%20to-Cloud%20Run-blue)](https://cloud.google.com/run/docs?hl=pt-br)
+[![Go Version](https://img.shields.io/badge/Go-1.21+-blue)](https://golang.org)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
 API em Go que recebe um CEP, identifica a cidade e retorna o clima atual (temperatura em Celsius, Fahrenheit e Kelvin).
+
+**🚀 Projeto desenvolvido como desafio do Lab 01: Deploy com Cloud Run**
 
 ## 📋 **Requisitos**
 
@@ -12,8 +18,8 @@ API em Go que recebe um CEP, identifica a cidade e retorna o clima atual (temper
 
 ### 1. Clone o repositório
 ```bash
-git clone <seu-repositorio>
-cd desafio_deploy_com_cloud_run
+git clone https://github.com/danielencestari/lab01.git
+cd lab01
 ```
 
 ### 2. Configure as variáveis de ambiente
@@ -24,6 +30,12 @@ cp .env.example .env
 # Edite o .env e adicione sua chave da WeatherAPI
 WEATHER_API_KEY=sua_chave_aqui
 ```
+
+**📝 Como obter a chave da WeatherAPI:**
+1. Acesse [WeatherAPI.com](https://www.weatherapi.com/)
+2. Crie uma conta gratuita
+3. Copie sua API key do dashboard
+4. Cole no arquivo `.env`
 
 ### 3. Instale as dependências
 ```bash
@@ -52,10 +64,16 @@ make run
 # Health check
 curl http://localhost:8080/health
 
-# Consulta CEP de São Paulo
+# Consulta CEP de São Paulo (Av. Paulista)
 curl http://localhost:8080/temperature/01310100
 
-# Resposta esperada:
+# Consulta CEP do Rio de Janeiro (Copacabana)
+curl http://localhost:8080/temperature/22070900
+
+# Consulta CEP de Brasília (Asa Norte)
+curl http://localhost:8080/temperature/70040010
+
+# Resposta esperada (exemplo):
 # {"temp_C":25.0,"temp_F":77.0,"temp_K":298.0}
 ```
 
@@ -123,7 +141,7 @@ gcloud run deploy weather-cep-api \
 
 ### 3. **Deploy automático via GitHub Actions:**
 
-Veja o arquivo `.github/workflows/deploy.yml` para configuração de CI/CD.
+Para configurar deploy automático, você pode criar um workflow no arquivo `.github/workflows/deploy.yml`. Veja a documentação do [Google Cloud Run](https://cloud.google.com/run/docs?hl=pt-br) para mais detalhes sobre CI/CD.
 
 ## 📁 **Estrutura do Projeto**
 
@@ -156,8 +174,8 @@ Veja o arquivo `.github/workflows/deploy.yml` para configuração de CI/CD.
 
 ## 📚 **APIs Utilizadas**
 
-- [ViaCEP](https://viacep.com.br/) - Consulta de CEPs brasileiros
-- [WeatherAPI](https://www.weatherapi.com/) - Dados meteorológicos
+- [ViaCEP](https://viacep.com.br/) - Consulta de CEPs brasileiros (gratuita)
+- [WeatherAPI](https://www.weatherapi.com/) - Dados meteorológicos (requer chave)
 
 ## 🛠 **Comandos Make Disponíveis**
 
@@ -171,6 +189,22 @@ make docker-run    # Executar via Docker
 make clean         # Limpar arquivos de build
 ```
 
-## 📝 **Licença**
+## 🤝 **Contribuindo**
 
-Este projeto é licenciado sob a licença MIT. 
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📄 **Licença**
+
+Este projeto é licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 📞 **Contato**
+
+**Repositório do Projeto:** [https://github.com/danielencestari/lab01](https://github.com/danielencestari/lab01)
+
+---
+
+⭐ **Se este projeto te ajudou, considere dar uma estrela!** ⭐ 
