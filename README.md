@@ -77,28 +77,25 @@ curl http://localhost:8080/temperature/70040010
 # {"temp_C":25.0,"temp_F":77.0,"temp_K":298.0}
 ```
 
-### Códigos de resposta:
+## ☁️ **Deploy no Google Cloud Run**
 
-- **200**: Sucesso
-- **404**: CEP não encontrado
-- **422**: CEP inválido
-- **500**: Erro interno (verifique se a API key está configurada)
+### URL do Deploy
+A API está disponível em: [https://weather-api-208690729789.us-central1.run.app/health](https://weather-api-208690729789.us-central1.run.app/health)
 
-## 🧪 **Executando Testes**
+### Endpoints Disponíveis
+- Health Check: `GET https://weather-api-208690729789.us-central1.run.app/health`
+- Temperatura por CEP: `GET https://weather-api-208690729789.us-central1.run.app/temperature/{cep}`
 
-```bash
-# Todos os testes
-make test
 
-# Apenas testes unitários
-make test-unit
-
-# Testes com cobertura
-make test-coverage
-
-# Testar endpoints (aplicação deve estar rodando)
-make test-endpoints
+### Exemplo de Resposta
+```json
+{
+    "cidade": "São Paulo",
+    "temp_C": 21.1,
+    "temp_F": 69.98,
+    "temp_K": 294.1
+}
 ```
----
 
-⭐ **Se este projeto te ajudou, considere dar uma estrela!** ⭐ 
+
+
