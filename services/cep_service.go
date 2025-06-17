@@ -63,8 +63,8 @@ func (s *CEPService) GetLocationByCEP(cep string) (*models.LocationInfo, error) 
 		return nil, fmt.Errorf("error decoding CEP response: %w", err)
 	}
 
-	// Verifica se o CEP foi encontrado (ViaCEP retorna erro: true quando não encontra)
-	if viaCEPResp.Erro {
+	// Verifica se o CEP foi encontrado (ViaCEP retorna erro: "true" quando não encontra)
+	if viaCEPResp.Erro == "true" {
 		return nil, fmt.Errorf("can not find zipcode")
 	}
 

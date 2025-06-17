@@ -108,7 +108,7 @@ func TestCEPService_GetLocationByCEP_InvalidCEP(t *testing.T) {
 func TestCEPService_GetLocationByCEP_NotFound(t *testing.T) {
 	// Mock da resposta de CEP não encontrado
 	mockResponse := `{
-		"erro": true
+		"erro": "true"
 	}`
 
 	// Cria resposta HTTP mock

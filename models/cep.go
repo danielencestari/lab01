@@ -12,7 +12,7 @@ type ViaCEPResponse struct {
 	GIA         string `json:"gia"`
 	DDD         string `json:"ddd"`
 	SIAFI       string `json:"siafi"`
-	Erro        bool   `json:"erro,omitempty"`
+	Erro        string `json:"erro,omitempty"`
 }
 
 // LocationInfo representa as informações de localização extraídas do CEP
